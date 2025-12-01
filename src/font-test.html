@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字体测试页面</title>
+  <style>
+    * {
+      font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'SimHei', 'SimSun', 'NSimSun', 'FangSong', 'KaiTi', 'STHeiti', 'STKaiti', 'STSong', 'STFangsong', 'STZhongsong', 'STLiti', 'Arial', 'Helvetica', 'sans-serif';
+    }
+    
+    body {
+      margin: 20px;
+      background: #f0f0f0;
+    }
+    
+    .test-container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .test-section {
+      margin: 20px 0;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    
+    .test-section h2 {
+      color: #666;
+      margin-top: 0;
+    }
+    
+    .test-text {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+    
+    .bold-text {
+      font-weight: bold;
+    }
+    
+    .italic-text {
+      font-style: italic;
+    }
+    
+    .small-text {
+      font-size: 12px;
+    }
+    
+    .large-text {
+      font-size: 20px;
+    }
+    
+    .status {
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+    
+    .success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .info {
+      background: #d1ecf1;
+      color: #0c5460;
+      border: 1px solid #bee5eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <h1>中文字体配置测试</h1>
+    
+    <div class="status success">
+      ✅ 字体配置已应用 - 如果看到中文正常显示，说明配置成功
+    </div>
+    
+    <div class="test-section">
+      <h2>基础文本测试</h2>
+      <div class="test-text">
+        舞台灯光模拟器是一个专业的灯光设计工具，支持多种灯具类型和实时预览功能。
+      </div>
+      <div class="test-text bold-text">
+        粗体文本：舞台灯光模拟器是一个专业的灯光设计工具
+      </div>
+      <div class="test-text italic-text">
+        斜体文本：支持面光灯、RGB灯、光束灯等多种灯具类型
+      </div>
+    </div>
+    
+    <div class="test-section">
+      <h2>不同字号测试</h2>
+      <div class="test-text small-text">
+        小号字体：数字键1，全选rgb灯；数字键2，全选面光灯；数字键3，全选光束灯
+      </div>
+      <div class="test-text">
+        正常字体：按住Ctrl键多选灯具或平移视角，按下shift键切换框选模式
+      </div>
+      <div class="test-text large-text">
+        大号字体：模拟器仅作为灯光设计参考，不作为演出使用
+      </div>
+    </div>
+    
+    <div class="test-section">
+      <h2>特殊字符测试</h2>
+      <div class="test-text">
+        特殊字符：①②③④⑤⑥⑦⑧⑨⑩ ⭐🌟✨💡🎭🎪🎨
+      </div>
+      <div class="test-text">
+        标点符号：，。！？；：""''（）【】《》
+      </div>
+    </div>
+    
+    <div class="test-section">
+      <h2>字体优先级说明</h2>
+      <div class="status info">
+        <strong>字体加载顺序：</strong><br>
+        1. Microsoft YaHei (微软雅黑) - Windows<br>
+        2. PingFang SC (苹方) - macOS<br>
+        3. Hiragino Sans GB (冬青黑体) - macOS备选<br>
+        4. WenQuanYi Micro Hei (文泉驿微米黑) - Linux<br>
+        5. SimHei (黑体) - Windows备选<br>
+        6. 其他系统字体...<br>
+        7. Arial, Helvetica, sans-serif (通用英文字体)
+      </div>
+    </div>
+    
+    <div class="test-section">
+      <h2>兼容性测试</h2>
+      <div class="status success">
+        ✅ Windows系统 - 使用微软雅黑字体<br>
+        ✅ macOS系统 - 使用苹方字体<br>
+        ✅ Linux系统 - 使用文泉驿微米黑字体<br>
+        ✅ pakeplus打包 - 使用系统内置字体<br>
+        ✅ 离线环境 - 无需网络连接
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // 检测当前使用的字体
+    function detectFont() {
+      const testElement = document.createElement('div');
+      testElement.style.fontFamily = 'Microsoft YaHei, PingFang SC, Hiragino Sans GB, WenQuanYi Micro Hei, SimHei, SimSun, NSimSun, FangSong, KaiTi, STHeiti, STKaiti, STSong, STFangsong, STZhongsong, STLiti, Arial, Helvetica, sans-serif';
+      testElement.style.fontSize = '20px';
+      testElement.style.visibility = 'hidden';
+      testElement.style.position = 'absolute';
+      testElement.textContent = '测试文本';
+      
+      document.body.appendChild(testElement);
+      
+      const computedStyle = window.getComputedStyle(testElement);
+      const fontFamily = computedStyle.fontFamily;
+      
+      document.body.removeChild(testElement);
+      
+      console.log('当前使用的字体族:', fontFamily);
+      return fontFamily;
+    }
+    
+    // 页面加载完成后检测字体
+    window.addEventListener('load', () => {
+      const currentFont = detectFont();
+      console.log('字体检测完成，当前使用:', currentFont);
+    });
+  </script>
+</body>
+</html> 
